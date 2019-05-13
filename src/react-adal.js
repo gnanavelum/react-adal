@@ -33,16 +33,16 @@ export function adalGetToken(authContext, resourceGuiId, callback) {
   });
 }
 
-export function runWithAdal(authContext, app, doNotLogin) {
+export function runWithAdal(authContext, app, doNotLogin, silentAuth) {
   //it must run in iframe too for refreshToken (parsing hash and get token)
   authContext.handleWindowCallback();
 
   //prevent iframe double app !!!
-  if (window === window.parent) {
+  if (window === window.parent || silentAuth) {
     if (!authContext.isCallback(window.location.hash)) {
       if (!authContext.getCachedToken(authContext.config.clientId)
           || !authContext.getCachedUser()) {
-        if (doNotLogin) {
+        if (doNotLogin || silentAuth) {
           app();
         } else {
           authContext.login();
