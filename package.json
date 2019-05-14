@@ -1,10 +1,10 @@
 {
   "name": "react-adal-silentauth",
-  "version": "0.0.0-beta",
+  "version": "0.0.0-beta-2",
   "description": "Azure Active Directory (ADAL) support for ReactJS for silent authentication only",
   "main": "lib/react-adal.js",
   "scripts": {
-    "compile": "cross-env NODE_ENV=production babel src --out-dir lib",
+    "compile": "cross-env NODE_ENV=production babel src --out-dir lib & copyfiles -f ./src/*.d.ts lib",
     "prepublish": "npm run compile"
   },
   "repository": {
@@ -31,28 +31,31 @@
     "url": "https://github.com/gnanavelum/react-adal/issues"
   },
   "homepage": "https://github.com/gnanavelum/react-adal#readme",
-  "dependencies": {},
-  "peerDependencies": {
-    "react": "^15.0.0 || ^16.0.0"
+  "dependencies": {
+    "copyfiles": "^2.1.0"
   },
+  "peerDependencies": {},
   "devDependencies": {
+    "@types/react": "^16.8.17",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "babel-jest": "23.6.0",
-    "babel-loader": "8.0.4",
+    "babel-loader": "^8.0.4",
     "babel-plugin-import": "^1.2.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react-app": "^3.0.0",
     "babel-runtime": "^6.26.0",
     "cross-env": "^5.1.4",
+    "dtslint": "latest",
     "eslint": "^5.6.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-defaults": "^9.0.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "react": "^16.8.6"
   }
 }

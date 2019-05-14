@@ -1318,9 +1318,9 @@ var AuthenticationContext = (function () {
                 self = this._openedWindows[this._openedWindows.length - 1].opener._adalInstance;
                 isPopup = true;
             }
-            else if (window.parent && window.parent._adalInstance) {
-                self = window.parent._adalInstance;
-            }
+            // else if (window.parent && window.parent._adalInstance) {
+            //     self = window.parent._adalInstance;
+            // }
 
             var requestInfo = self.getRequestInfo(hash);
             var token, tokenReceivedCallback, tokenType = null;
